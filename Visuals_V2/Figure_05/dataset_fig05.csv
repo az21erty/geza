@@ -1,0 +1,18 @@
+year,series,v1_value_MADbn,v2_value_MADbn,v2_confidence,charted_in_v2,primary_source
+2014,automotive,40.0,40.0,reconstructed,no,AMICA sector reconstruction (pre-2018)
+2016,automotive,54.0,54.0,reconstructed,no,AMICA sector reconstruction (pre-2018)
+2018,automotive,65.0,65.1,validated,yes(audit),"meer.com/MICIEN: from 14.7 to 65.1 bn dirhams by end-2018"
+2019,automotive,,~80,context,no,"FT ~$10bn / Reuters $9bn (2019)"
+2020,automotive,72.7,72.7,validated,yes,"Reuters: auto exports $8.1bn in 2020 (~MAD 72-74bn)"
+2022,automotive,111.4,111.3,validated,yes,"Statista/Office des Changes: 111,281 MMAD"
+2023,automotive,,141.8,validated,yes,"Statista 141,763 MMAD; Reuters 'record 141 bn'"
+2024,automotive,157.0,157.0,validated,yes,"Yabiladi: record MAD 157 bn (2024)"
+2014,aerospace,7.5,7.5,reconstructed,no,GIMAS sector reconstruction (pre-2018)
+2016,aerospace,9.8,9.8,reconstructed,no,GIMAS sector reconstruction (pre-2018)
+2018,aerospace,12.4,~15,reconstructed,no,"uncertain; 2019=$1.9bn(~18), 2020=$1.3bn(12.9) imply 2018 ~15-16"
+2020,aerospace,12.9,12.9,validated,yes,"Reuters: aerospace fell to $1.3bn in 2020 (COVID), ~MAD 12.9bn"
+2021,aerospace,,~15.4,context,no,"Reuters Mar-2022: +22% to ~$1.6bn"
+2022,aerospace,21.9,18.9,reconstructed_estimate,yes(flagged),"interpolated between 2021 ~15.4 and 2023 21.8; NOT Office des Changes confirmed"
+2023,aerospace,,21.8,validated,yes,"Reuters/Safran citing Office des Changes: MAD 21.8 bn"
+2024,aerospace,26.45,26.4,validated,yes,"Reuters/Safran: MAD 26.4 bn ($2.8bn)"
+2025,aerospace,,29.0,validated,no(forward),"Reuters Feb-2026: MAD 29 bn (full year 2025)"

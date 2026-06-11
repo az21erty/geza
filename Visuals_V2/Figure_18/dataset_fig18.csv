@@ -1,0 +1,10 @@
+stage_order,stage,value_capture_index_schematic,morocco_position,concrete_assets
+1,Mining / raw material,1.0,Established strength,OCP controls ~70% of world phosphate reserves
+2,Refining & intermediates,2.8,Entering (new FDI),OCP 30000 t LFP intermediates by 2027; Mera Batteries 1 GWh by 2026
+3,Cathode & anode active materials,4.7,Entering (new FDI),BTR cathode+anode; Shinzoom anode (Tanger Tech)
+4,Cell manufacturing,5.0,Early / nascent,Gotion gigafactory Kenitra (20->100 GWh) just starting
+5,Pack & EV assembly,3.2,Established strength (adjacent),Renault & Stellantis vehicle-assembly base
+# value_capture_index is SCHEMATIC (relative). It peaks midstream, per manuscript Part VI:
+# "value distribution in a battery supply chain concentrates at the processing and cell
+# manufacturing stages, not at the mining stage."
+# Market context: global LFP battery market ~USD 90.3 bn by 2034 (16.9% CAGR).

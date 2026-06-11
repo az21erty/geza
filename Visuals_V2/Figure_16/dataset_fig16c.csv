@@ -1,0 +1,11 @@
+stage_order,stage,descriptor,value_per_tonne_index_schematic,status
+1,Phosphate rock,Raw extraction; ~70% of world reserves,1,established
+2,Phosphoric acid,First chemical transformation,2,established
+3,Phosphate fertilizers,DAP / MAP / TSP bulk export,3,established
+4,Specialty / customized fertilizers,Soil-specific blends for African markets,4,established
+5,Battery-grade LFP precursors,Phosphate inputs for EV batteries,5,emerging
+# value_per_tonne_index is a SCHEMATIC relative ladder (illustrative), not a measured series.
+# Validated quantitative anchors:
+# OCP 2024 revenue = MAD 96.99 bn (USD 9.76 bn); 69% from fertilizers (vs raw rock historically).
+# OCP 9M-2025 revenue = USD 9.04 bn (+30% y/y); EBITDA +22%.
+# Green Investment Program 2023-2027 = MAD 130 bn; target 100% renewable energy by 2027.

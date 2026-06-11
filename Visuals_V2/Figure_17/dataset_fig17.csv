@@ -1,0 +1,6 @@
+company,parent,investment_usd_m,investment_note,products,capacity,ev_equivalent_per_year,location,jobs,status,primary_source
+BTR New Material Group,BTR (Shenzhen),750,validated integrated scope,cathode + anode (integrated),"cathode 50,000 t/yr; anode 60,000 t/yr",~500000,Cite Mohammed VI Tanger Tech,n/a,under construction; first cathode output Sep 2026; targets ~USD 1bn revenue,"AGBI May 2025; Reuters Mar 2024; electrive Aug 2024; MWN May 2026"
+Shinzoom,Hunan Zhongke Electric / China Sunrise Energy,460,"announced; 'up to ~500M' envelope",anode (negative electrode),"20-hectare site; later proposal 100,000 t/yr anode base",n/a,Cite Mohammed VI Tanger Tech,~2000,announced May 2024,"Reuters May 2024; Yabiladi May 2024; metal.com 2026"
+# Context (not the two anchors, shown for scale):
+# Gotion High-Tech: USD 1.3bn EV battery gigafactory, Kenitra, scaling 20 -> 100 GWh (Reuters Jun 2024).
+# Superseded V1 figure: BTR ~USD 690M (cathode only) -> corrected to ~USD 750M integrated cathode+anode.
