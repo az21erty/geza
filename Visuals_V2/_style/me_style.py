@@ -155,3 +155,67 @@ def report_overlaps(fig, items, pad=1.0):
                 print(f"  [OVERLAP] '{ni}'  <->  '{nj}'")
     print(f"  [overlap-check] {len(boxes)} labels measured, {n} overlaps.")
     return n
+
+
+
+def audit_layout(fig, tol=2.0):
+    """
+    Comprehensive headless layout audit (since the renderer is not visible).
+    Checks EVERY non-empty text artist for:
+      (1) CLIPPING - any part outside the figure canvas;
+      (2) OVERLAP  - bounding-box collision with another text artist.
+    Tick labels on the same axis are exempt from the overlap check (they sit
+    naturally adjacent). Prints a report and returns (n_clip, n_overlap).
+    """
+    fig.canvas.draw()
+    rnd = fig.canvas.get_renderer()
+    W, H = fig.canvas.get_width_height()
+
+    import matplotlib.text as mtext
+    skip_ids = set()
+    for ax in fig.get_axes():
+        axison = getattr(ax, "axison", True)
+        for tl in (ax.get_xticklabels() + ax.get_yticklabels()):
+            # tick labels of an axis that is turned off are NOT drawn
+            if not axison:
+                skip_ids.add(id(tl))
+    tick_ids = set()
+    for ax in fig.get_axes():
+        for tl in (ax.get_xticklabels() + ax.get_yticklabels()):
+            tick_ids.add(id(tl))
+
+    texts = []
+    for t in fig.findobj(mtext.Text):
+        s = (t.get_text() or "").strip()
+        if not s or not t.get_visible() or id(t) in skip_ids:
+            continue
+        try:
+            bb = t.get_window_extent(renderer=rnd)
+        except Exception:
+            continue
+        if bb.width <= 0 or bb.height <= 0:
+            continue
+        texts.append((t, bb, s, id(t) in tick_ids))
+
+    n_clip = 0
+    for t, bb, s, _ in texts:
+        if bb.x0 < -tol or bb.y0 < -tol or bb.x1 > W + tol or bb.y1 > H + tol:
+            n_clip += 1
+            print(f"  [CLIP] '{s[:42]}'  bbox=({bb.x0:.0f},{bb.y0:.0f},{bb.x1:.0f},{bb.y1:.0f}) canvas=({W},{H})")
+
+    n_over = 0
+    for i in range(len(texts)):
+        for j in range(i + 1, len(texts)):
+            ti, bi, si, tki = texts[i]
+            tj, bj, sj, tkj = texts[j]
+            if tki and tkj:
+                continue  # adjacent tick labels are fine
+            if bi.overlaps(bj):
+                # ignore negligible touches
+                ox = min(bi.x1, bj.x1) - max(bi.x0, bj.x0)
+                oy = min(bi.y1, bj.y1) - max(bi.y0, bj.y0)
+                if ox > 2 and oy > 2:
+                    n_over += 1
+                    print(f"  [OVERLAP] '{si[:30]}'  <->  '{sj[:30]}'  (ox={ox:.0f},oy={oy:.0f})")
+    print(f"  [audit] {len(texts)} texts | clips={n_clip} | overlaps={n_over} | canvas={W}x{H}")
+    return n_clip, n_over

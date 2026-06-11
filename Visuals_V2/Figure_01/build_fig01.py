@@ -111,7 +111,7 @@ S.sourceblock(
     "MICNT, Pacte National pour l'\u00c9mergence Industrielle (2009); "
     "S&P Global Ratings (26 Sep 2025; 27 Mar 2026). Milestones are factual, fully sourced.",
 )
-S.tag(fig)
+S.tag(fig, y=0.978)
 # legend of phases (compact, under the title rule, right side)
 lx = 0.70
 for i, (lab, ph) in enumerate([("Discipline", 0), ("Construction", 1), ("Certification", 2)]):
@@ -123,5 +123,7 @@ for i, (lab, ph) in enumerate([("Discipline", 0), ("Construction", 1), ("Certifi
 out = os.path.join(os.path.dirname(__file__), "FIG-01_sequencing_timeline_V2.png")
 print("Overlap check (milestone labels):")
 S.report_overlaps(fig, label_artists, pad=1.12)
+print("Full layout audit:")
+S.audit_layout(fig)
 fig.savefig(out)
 print("WROTE", out)
